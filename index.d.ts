@@ -16,6 +16,7 @@ declare module "cybexjs" {
     init: () => Promise<any>;
     subscribe(handler: (obj: object) => any): void;
     unsubscribe(handler: (obj: object) => any): void;
+    fetchFullAccount: any;
     getObject(id: string): any;
     getAccount(name_or_id: string, autosubscribe?: boolean): any;
   }
