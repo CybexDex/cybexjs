@@ -196,6 +196,10 @@ class TransactionBuilder {
                     key ="fee_paying_account";
                     break;
 
+                    case 45: // initiate_crowdfund
+                    key = "owner";
+                    break;
+
                     case 31: // committee_member_update_global_parameters
                     requiresReview = true;
                     extraReview = 60 * 60 * 24 * 13; // Make the review period 2 weeks total
@@ -304,7 +308,6 @@ class TransactionBuilder {
             promises.push(Apis.instance().db_api().exec( "get_required_fees", [operations, "1.3.0"]));
             promises.push(Apis.instance().db_api().exec("get_objects", [[asset_id]]));
         }
-
         let fees, coreFees, asset;
         return Promise.all(promises).then( (results) => {
 
@@ -385,6 +388,7 @@ class TransactionBuilder {
     }
 
     get_required_signatures(available_keys){
+        console.log("AvL: ", available_keys);
         if (!available_keys.length) { return Promise.resolve([]); }
         var tr_object = ops.signed_transaction.toObject(this);
         //DEBUG console.log('... tr_object',tr_object)

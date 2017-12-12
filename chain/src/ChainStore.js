@@ -199,7 +199,7 @@ class ChainStore
     {
         let cancelledOrders = [];
         let closedCallOrders = [];
-
+        
         for( let a = 0; a < updated_objects.length; ++a )
         {
             for( let i = 0; i < updated_objects[a].length; ++i )
@@ -561,7 +561,6 @@ class ChainStore
     *  @return the account object if it does exist
     */
     getAccount( name_or_id, autosubscribe = true ) {
-
         if( !name_or_id )
             return null;
 

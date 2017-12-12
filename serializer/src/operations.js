@@ -166,6 +166,24 @@ export const asset_issue_operation_fee_parameters = new Serializer(
         price_per_kbyte: uint32
     }
 );
+export const initiate_crowdfund_operation_fee_parameters = new Serializer(
+    "initiate_crowdfund_operation_fee_parameters", {
+        fee: uint64,
+        price_per_kbyte: uint32
+    }
+);
+export const participate_crowdfund_operation_fee_parameters = new Serializer(
+    "participate_crowdfund_operation_fee_parameters", {
+        fee: uint64,
+        price_per_kbyte: uint32
+    }
+);
+export const withdraw_crowdfund_operation_fee_parameters = new Serializer(
+    "withdraw_crowdfund_operation_fee_parameters", {
+        fee: uint64,
+        price_per_kbyte: uint32
+    }
+);
 
 export const asset_reserve_operation_fee_parameters = new Serializer(
     "asset_reserve_operation_fee_parameters", {
@@ -388,7 +406,11 @@ var fee_parameters = static_variant([
     blind_transfer_operation_fee_parameters,
     transfer_from_blind_operation_fee_parameters,
     asset_settle_cancel_operation_fee_parameters,
-    asset_claim_fees_operation_fee_parameters
+    asset_claim_fees_operation_fee_parameters,
+    asset_settle_cancel_operation_fee_parameters,    
+    initiate_crowdfund_operation_fee_parameters,
+    participate_crowdfund_operation_fee_parameters,
+    withdraw_crowdfund_operation_fee_parameters,
 ]);
 
 export const fee_schedule = new Serializer(
@@ -720,6 +742,36 @@ export const asset_global_settle = new Serializer(
         asset_to_settle: protocol_id_type("asset"),
         settle_price: price,
         extensions: set(future_extensions)
+    }
+);
+
+export const participate_crowdfund = new Serializer(
+    "participate_crowdfund", {
+        fee: asset,
+        buyer: protocol_id_type("account"),
+        valuation: int64,
+        cap: int64,
+        // pubkey: address,
+        crowdfund: protocol_id_type("crowdfund"),
+        // extensions: set(future_extensions)
+    }
+);
+export const withdraw_crowdfund = new Serializer(
+    "withdraw_crowdfund", {
+        fee: asset,
+        buyer: protocol_id_type("account"),
+        crowdfund_contract: protocol_id_type("crowdfund_contract"),
+    }
+);
+export const initiate_crowdfund  = new Serializer(
+    "initiate_crowdfund", {
+        fee: asset,
+        owner: protocol_id_type("account"),
+        asset_id: protocol_id_type("asset"),
+        t: uint64,
+        u: uint64,
+        // v: uint64,
+        // extensions: set(future_extensions)
     }
 );
 
@@ -1161,7 +1213,11 @@ operation.st_operations = [
     blind_transfer,
     transfer_from_blind,
     asset_settle_cancel,
-    asset_claim_fees
+    asset_claim_fees,
+    asset_settle_cancel,    
+    initiate_crowdfund,
+    participate_crowdfund,
+    withdraw_crowdfund
 ];
 
 export const transaction = new Serializer(
