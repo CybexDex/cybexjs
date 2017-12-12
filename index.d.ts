@@ -26,6 +26,7 @@ declare module "cybexjs" {
   const Aes: any;
   const PublicKey: any;
   const PrivateKey: any;
+  const ChainTypes: any;
   const key: {
     addresses(pubkey: any): string[]
   };
