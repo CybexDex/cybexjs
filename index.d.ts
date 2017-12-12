@@ -25,6 +25,7 @@ declare module "cybexjs" {
   const TransactionHelper: any;
   const Aes: any;
   const PublicKey: any;
+  const PrivateKey: any;
   const key: {
     addresses(pubkey: any): string[]
   };
