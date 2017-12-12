@@ -18,6 +18,7 @@ declare module "cybexjs" {
     unsubscribe(handler: (obj: object) => any): void;
     fetchFullAccount: any;
     getObject(id: string): any;
+    getBalanceObjects(id: string): any;
     getAccount(name_or_id: string, autosubscribe?: boolean): any;
   }
   const ChainStore: ChainStoreClass;
