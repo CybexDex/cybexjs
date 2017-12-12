@@ -1,9 +1,9 @@
 declare module "cybexjs" {
-  
+
   type ParamsOfCheck = {
     accountName: string;
     password: string
-    auths: {[x: string]: [string, number][]}
+    auths: { [x: string]: [string, number][] }
   };
   class AccountLogin {
     checkKeys: (paramsToCheck: ParamsOfCheck) => boolean;
@@ -18,7 +18,7 @@ declare module "cybexjs" {
     unsubscribe(handler: (obj: object) => any): void;
     fetchFullAccount: any;
     getObject(id: string): any;
-    getBalanceObjects(id: string): any;
+    getBalanceObjects(id: string | string[]): any;
     getAccount(name_or_id: string, autosubscribe?: boolean): any;
   }
   const ChainStore: ChainStoreClass;
