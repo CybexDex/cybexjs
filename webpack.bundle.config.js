@@ -20,5 +20,8 @@ module.exports = {
       "node_modules"
     ]
   },
-  target: "node"
+  target: "node",
+  externals: {
+    "cybexjs-ws": "cybexjs-ws"
+  }
 };
