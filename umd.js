@@ -4682,6 +4682,7 @@ ChainTypes.operations = {
     transfer_from_blind: 41,
     asset_settle_cancel: 42,
     asset_claim_fees: 43,
+    asset_settle_cancel_demo: 44,    
     initiate_crowdfund: 45,
     participate_crowdfund: 46,
     withdraw_crowdfund: 47,
