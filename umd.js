@@ -9651,11 +9651,35 @@ var Serializer = function (operation_name, serilization_types_object) {
 
 var void_ext = new Serializer("void_ext");
 
-var cybex_vesting_ext = new Serializer("cybex_vesting_ext", {
-    vesting_period: uint64
+var cybex_ext_vesting = new Serializer("cybex_ext_vesting", {
+    vesting_period: uint64,
+    public_key: public_key
+});
+var cybex_ext_transfer_vesting = new Serializer("cybex_ext_transfer_vesting", {
+    vesting_cliff: uint64,
+    vesting_duration: uint64
+});
+var cybex_ext_swap = new Serializer("cybex_ext_swap", {
+    cybex_ext_swap: string
+});
+var cybex_ext_xfer_to_name = new Serializer("cybex_ext_xfer_to_name", {
+    name: string,
+    asset_sym: string,
+    fee_asset_sym: string,
+    hw_cookie: uint8
 });
 
-var future_extensions = static_variant([void_ext, cybex_vesting_ext]);
+var cybex_xfer_item = new Serializer("cybex_xfer_item", {
+    name: string,
+    amount: string,
+});
+var cybex_ext_xfer_to_many = new Serializer("cybex_ext_xfer_to_many", {
+    list: array(cybex_xfer_item)
+});
+
+
+
+var future_extensions = static_variant([void_ext, cybex_ext_vesting, cybex_ext_swap, cybex_ext_transfer_vesting, cybex_ext_xfer_to_name, cybex_ext_xfer_to_many]);
 
 // Custom-types follow Generated code:
 
