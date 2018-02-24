@@ -445,9 +445,9 @@ crypto-js@^3.1.9-1:
   version "3.1.9-1"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
 
-cybexjs-ws@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/cybexjs-ws/-/cybexjs-ws-1.1.4.tgz#4942c418607c1d00890d6a0f6009ae392e61c2b2"
+cybexjs-ws@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/cybexjs-ws/-/cybexjs-ws-1.1.5.tgz#2d940a977b7868c04b4f7b982bc6f8ab5f5025cc"
 
 d@1:
   version "1.0.0"
