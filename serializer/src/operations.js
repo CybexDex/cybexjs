@@ -1217,10 +1217,10 @@ export const stealth_memo_data = new Serializer("stealth_memo_data", {
 
 export const fund_query = new Serializer("fund_query", {
   accountName: string,
-  asset: string,
-  fundType: string,
-  size: uint32,
-  offset: uint32,
+  asset: optional(string),
+  fundType: optional(string),
+  size: optional(uint32),
+  offset: optional(uint32),
   expiration: time_point_sec
 });
 // var stealth_confirmation = new Serializer(

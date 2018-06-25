@@ -11087,10 +11087,10 @@ const stealth_memo_data = new Serializer("stealth_memo_data", {
 
 const fund_query = new Serializer("fund_query", {
   accountName: string,
-  asset: string,
-  fundType: string,
-  size: uint32,
-  offset: uint32,
+  asset: optional(string),
+  fundType: optional(string),
+  size: optional(uint32),
+  offset: optional(uint32),
   expiration: time_point_sec
 });
 /* harmony export (immutable) */ __webpack_exports__["fund_query"] = fund_query;
