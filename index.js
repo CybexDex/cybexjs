@@ -22,7 +22,7 @@ export { Address, Aes, PrivateKey, PublicKey, Signature, brainKey, hash, key };
 
 /* Chain */
 import ChainStore from "./chain/src/ChainStore";
-import TransactionBuilder  from "./chain/src/TransactionBuilder";
+import TransactionBuilder from "./chain/src/TransactionBuilder";
 import ChainTypes from "./chain/src/ChainTypes";
 import ObjectId from "./chain/src/ObjectId";
 import NumberUtils from "./chain/src/NumberUtils";
@@ -31,7 +31,21 @@ import ChainValidation from "./chain/src/ChainValidation";
 import EmitterInstance from "./chain/src/EmitterInstance";
 import Login from "./chain/src/AccountLogin";
 
-const {FetchChainObjects, FetchChain} = ChainStore;
+const { FetchChainObjects, FetchChain } = ChainStore;
 
-export {ChainStore, TransactionBuilder, FetchChainObjects, ChainTypes, EmitterInstance,
-    ObjectId, NumberUtils, TransactionHelper, ChainValidation, FetchChain, Login }
+import { ops as Operations } from "./serializer";
+
+export {
+  ChainStore,
+  TransactionBuilder,
+  Operations,
+  FetchChainObjects,
+  ChainTypes,
+  EmitterInstance,
+  ObjectId,
+  NumberUtils,
+  TransactionHelper,
+  ChainValidation,
+  FetchChain,
+  Login
+};
