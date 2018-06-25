@@ -11090,7 +11090,8 @@ const fund_query = new Serializer("fund_query", {
   asset: string,
   fundType: string,
   size: uint32,
-  offset: uint32
+  offset: uint32,
+  expiration: time_point_sec
 });
 /* harmony export (immutable) */ __webpack_exports__["fund_query"] = fund_query;
 

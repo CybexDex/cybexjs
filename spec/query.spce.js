@@ -14,13 +14,14 @@ const op = Operations.fund_query.fromObject({
   asset: "TEST.ETH",
   fundType: "WITHDRAW",
   offset: 0,
-  size: 10
+  size: 10,
+  expiration: Math.ceil(Date.now() / 1000) + 30
 });
 
 let privKey = PrivateKey.fromWif(privKeyWif);
 let pubKey = privKey.toPublicKey();
 let buffer = Operations.fund_query.toBuffer(op);
-let res = Signature.signBuffer(buffer, privKey).toBuffer;
+let res = Signature.signBuffer(buffer, privKey).toBuffer();
 
 console.log("After Sign: ");
 console.log(res);

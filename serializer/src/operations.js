@@ -1220,7 +1220,8 @@ export const fund_query = new Serializer("fund_query", {
   asset: string,
   fundType: string,
   size: uint32,
-  offset: uint32
+  offset: uint32,
+  expiration: time_point_sec
 });
 // var stealth_confirmation = new Serializer(
 //     "stealth_confirmation", {
