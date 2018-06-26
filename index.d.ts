@@ -1,4 +1,3 @@
-/// <reference types="bigi" />
 import { Point, getCurveByName } from "ecurve";
 import BigInteger from 'bigi';
 
