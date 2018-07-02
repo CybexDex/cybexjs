@@ -9693,7 +9693,8 @@ var cybex_ext_xfer_to_name = new Serializer("cybex_ext_xfer_to_name", {
   name: string,
   asset_sym: string,
   fee_asset_sym: string,
-  hw_cookie: uint8
+  hw_cookie1: uint8,
+  hw_cookie2: uint8
 });
 
 var cybex_xfer_item = new Serializer("cybex_xfer_item", {
