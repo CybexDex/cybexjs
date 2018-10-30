@@ -1,6 +1,5 @@
 import { Point, getCurveByName } from "ecurve";
-import BigInteger from 'bigi';
-
+import BigInteger from "bigi";
 
 declare module "cybexjs" {
   class Serializer {
@@ -143,4 +142,19 @@ declare module "cybexjs" {
     get_random_key: any;
   };
   const EmitterInstance: any;
+  const Address,
+    brainKey,
+    hash,
+    key,
+    Operations,
+    FetchChainObjects,
+    ObjectId,
+    NumberUtils,
+    FetchChain,
+    Login,
+    Serializer,
+    fp,
+    types,
+    template,
+    SerializerValidation;
 }
