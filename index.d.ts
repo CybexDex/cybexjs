@@ -2,8 +2,8 @@ import { Point, getCurveByName } from "ecurve";
 import BigInteger from "bigi";
 
 declare module "cybexjs" {
-  class Serializer {
-    constructor(operation_name: string, types: { [p: string]: any });
+  class Serializer<T> {
+    constructor(operation_name: string, types: T);
     fromByteBuffer(b);
     appendByteBuffer(b, object);
     fromObject(serialized_object);
@@ -18,7 +18,7 @@ declare module "cybexjs" {
     toByteBuffer(objectt);
     toBuffer(object);
   }
-  const ops: { [op: string]: Serializer };
+  const ops: { [op: string]: Serializer<any> };
 
   class Signature {
     constructor(r1, s1, i1);
@@ -145,14 +145,10 @@ declare module "cybexjs" {
   const Address,
     brainKey,
     hash,
-    key,
     Operations,
     FetchChainObjects,
     ObjectId,
     NumberUtils,
-    FetchChain,
-    Login,
-    Serializer,
     fp,
     types,
     template,
