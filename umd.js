@@ -10605,6 +10605,7 @@ const op_wrapper = new Serializer("op_wrapper", {
 });
 /* harmony export (immutable) */ __webpack_exports__["op_wrapper"] = op_wrapper;
 
+op_wrapper.nosort = true;
 
 const proposal_create = new Serializer("proposal_create", {
   fee: asset,

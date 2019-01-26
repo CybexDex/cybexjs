@@ -809,6 +809,7 @@ export const witness_update = new Serializer("witness_update", {
 export const op_wrapper = new Serializer("op_wrapper", {
   op: operation
 });
+op_wrapper.nosort = true;
 
 export const proposal_create = new Serializer("proposal_create", {
   fee: asset,
