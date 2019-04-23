@@ -1,0 +1,66 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _bytebuffer = require("bytebuffer");
+
+var _SerializerValidation = _interopRequireDefault(require("../../serializer/src/SerializerValidation"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DB_MAX_INSTANCE_ID = _bytebuffer.Long.fromNumber(Math.pow(2, 48) - 1);
+
+class ObjectId {
+  constructor(space, type, instance) {
+    this.space = space;
+    this.type = type;
+    this.instance = instance;
+    var instance_string = this.instance.toString();
+    var ObjectId = `${this.space}.${this.type}.${instance_string}`;
+
+    if (!_SerializerValidation.default.is_digits(instance_string)) {
+      throw new `Invalid object id ${ObjectId}`();
+    }
+  }
+
+  static fromString(value) {
+    if (value.space !== undefined && value.type !== undefined && value.instance !== undefined) {
+      return value;
+    }
+
+    var params = _SerializerValidation.default.require_match(/^([0-9]+)\.([0-9]+)\.([0-9]+)$/, _SerializerValidation.default.required(value, "ObjectId"), "ObjectId");
+
+    return new ObjectId(parseInt(params[1]), parseInt(params[2]), _bytebuffer.Long.fromString(params[3]));
+  }
+
+  static fromLong(long) {
+    var space = long.shiftRight(56).toInt();
+    var type = long.shiftRight(48).toInt() & 0x00ff;
+    var instance = long.and(DB_MAX_INSTANCE_ID);
+    return new ObjectId(space, type, instance);
+  }
+
+  static fromByteBuffer(b) {
+    return ObjectId.fromLong(b.readUint64());
+  }
+
+  toLong() {
+    return _bytebuffer.Long.fromNumber(this.space).shiftLeft(56).or(_bytebuffer.Long.fromNumber(this.type).shiftLeft(48).or(this.instance));
+  }
+
+  appendByteBuffer(b) {
+    return b.writeUint64(this.toLong());
+  }
+
+  toString() {
+    return `${this.space}.${this.type}.${this.instance.toString()}`;
+  }
+
+}
+
+var _default = ObjectId;
+exports.default = _default;
+module.exports = exports.default;

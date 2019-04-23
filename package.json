@@ -4,7 +4,8 @@
   "description": "",
   "main": "umd.js",
   "scripts": {
-    "build": "webpack --config webpack.bundle.config.js"
+    "build": "webpack --config webpack.bundle.config.js",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel lib -d cjs"
   },
   "keywords": [
     "cybex",
@@ -32,6 +33,13 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "browserify": "^16.2.2",
+    "cross-env": "^5.0.1",
     "webpack": "^3.10.0",
     "ws": "^3.3.2"
   },
